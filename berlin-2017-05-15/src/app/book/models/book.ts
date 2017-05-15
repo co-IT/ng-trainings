@@ -8,4 +8,12 @@ export class Book {
     public price: number,
     public authors: string[]
   ) { }
+
+  rateUp() {
+    this.rating++;
+  }
+
+  rateDown() {
+    this.rating--;
+  }
 }
