@@ -1,0 +1,14 @@
+<div class="thumbnail">
+  <img src="https://dummyimage.com/125x80/333/fff&text=Buch" alt="">
+</div>
+<div class="content">
+  <div class="title">{{ book.title }} ({{ book.rating }})</div>
+  <div class="authors">{{ book.authors }}</div>
+  <div class="price">{{ book.price }}</div>
+</div>
+<div class="actions">
+  <div class="btn-group btn-sm">
+    <button class="btn" (click)="rateUp()">+</button>
+    <button class="btn" (click)="rateDown()">-</button>
+  </div>
+</div>
