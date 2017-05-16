@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { BookService } from './book/core/book.service';
+import { Component, OnInit } from '@angular/core';
 
 import { Book } from './book/models/book';
 import { ViewMode } from './book/book-view-toggle/view-mode';
@@ -8,17 +9,19 @@ import { ViewMode } from './book/book-view-toggle/view-mode';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  books: Book[];
   title = 'app works!';
 
   viewMode = ViewMode;
   currentViewMode = ViewMode.Grid;
 
-  books = [
-    new Book('59382743329', 'Angnular', 20, ['Miskio Hevery']),
-    new Book('59382743329', 'Aurelia', 30, ['Rob Eisenberg']),
-    new Book('59382743329', 'Vue', 40, ['Andre Staltz'])
-  ];
+  constructor(private booksService: BookService) { }
+
+  ngOnInit() {
+    this.books = this.booksService.getAll();
+  }
+
 
   setCurrentViewMode(newViewMode: ViewMode) {
     this.currentViewMode = newViewMode;

@@ -1,3 +1,4 @@
+import { BookService } from './core/book.service';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -25,6 +26,7 @@ import { BookAddFormComponent } from './book-add-form/book-add-form.component';
     BookViewToggleComponent,
     BookAddFormComponent
   ],
-  exports: [BookAddFormComponent, BookListComponent, BookGridComponent, BookViewToggleComponent]
+  exports: [BookAddFormComponent, BookListComponent, BookGridComponent, BookViewToggleComponent],
+  providers: [BookService]
 })
 export class BookModule { }
