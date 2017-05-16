@@ -8,6 +8,7 @@ import { BookGridComponent } from './book-grid/book-grid.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { BookListElementComponent } from './book-list-element/book-list-element.component';
 import { BookViewToggleComponent } from './book-view-toggle/book-view-toggle.component';
+import { BookAddFormComponent } from './book-add-form/book-add-form.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { BookViewToggleComponent } from './book-view-toggle/book-view-toggle.com
     BookGridComponent,
     BookListComponent,
     BookListElementComponent,
-    BookViewToggleComponent
+    BookViewToggleComponent,
+    BookAddFormComponent
   ],
   exports: [BookListComponent, BookGridComponent, BookViewToggleComponent]
 })
