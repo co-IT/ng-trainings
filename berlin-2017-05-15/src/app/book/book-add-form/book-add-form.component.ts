@@ -1,5 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { FormControl, NgModel } from '@angular/forms';
 
 import { Book } from '../models/book';
 
@@ -9,6 +9,7 @@ import { Book } from '../models/book';
   styleUrls: ['./book-add-form.component.sass']
 })
 export class BookAddFormComponent implements OnInit {
+  book = new Book('', '', null, []);
 
   @Output() add = new EventEmitter<Book>();
 
@@ -17,20 +18,12 @@ export class BookAddFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  addBook(
-    isbn: FormControl,
-    title: FormControl,
-    authors: FormControl,
-    price: FormControl,
-    description: FormControl) {
-    const book = new Book(
-      isbn.value,
-      title.value,
-      authors.value,
-      price.value
-    );
-    book.description = description.value;
+  updateAuthors(authors: NgModel) {
+    this.book.authors = authors.viewModel.split(',');
+  }
 
-    this.add.emit(book);
+  addBook() {
+    console.log(this.book);
+    this.add.emit(this.book);
   }
 }
