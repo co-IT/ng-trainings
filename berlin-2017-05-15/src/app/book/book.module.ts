@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -13,6 +14,7 @@ import { BookAddFormComponent } from './book-add-form/book-add-form.component';
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     UtilitiesModule
   ],
   declarations: [

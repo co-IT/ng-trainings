@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 import { Book } from '../models/book';
 
@@ -16,8 +17,18 @@ export class BookAddFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  addBook(isbn, title, authors, price, description) {
-    const book = new Book(isbn.value, title.value, authors.value, price.value);
+  addBook(
+    isbn: FormControl,
+    title: FormControl,
+    authors: FormControl,
+    price: FormControl,
+    description: FormControl) {
+    const book = new Book(
+      isbn.value,
+      title.value,
+      authors.value,
+      price.value
+    );
     book.description = description.value;
 
     this.add.emit(book);
