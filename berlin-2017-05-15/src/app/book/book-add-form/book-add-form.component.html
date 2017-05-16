@@ -21,7 +21,8 @@
       <textarea #description id="book-add-description" class="form-control"></textarea>
     </div>
     <button
-      (click)="add(isbn, title, authors, price, description)"
+      type="button"
+      (click)="addBook(isbn, title, authors, price, description)"
       class="btn btn-primary">
       Neues Buch anlegen
     </button>

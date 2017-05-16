@@ -3,8 +3,12 @@
 </h1>
 
 <div class="container">
-  <tr-book-view-toggle (change)="setCurrentViewMode($event)"></tr-book-view-toggle>
 
+  <tr-book-add-form (add)="addNewBook($event)"></tr-book-add-form>
+
+  <hr>
+
+  <tr-book-view-toggle (change)="setCurrentViewMode($event)"></tr-book-view-toggle>
 
   <tr-book-grid
     *ngIf="currentViewMode == viewMode.Grid; else listView;"

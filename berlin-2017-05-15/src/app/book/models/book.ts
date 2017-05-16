@@ -1,6 +1,7 @@
 export class Book {
   thumbnail: string;
   rating = 0;
+  description: string;
 
   constructor(
     public isbn: string,

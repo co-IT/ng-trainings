@@ -23,4 +23,8 @@ export class AppComponent {
   setCurrentViewMode(newViewMode: ViewMode) {
     this.currentViewMode = newViewMode;
   }
+
+  addNewBook(book: Book) {
+    this.books.unshift(book);
+  }
 }

@@ -23,6 +23,6 @@ import { BookAddFormComponent } from './book-add-form/book-add-form.component';
     BookViewToggleComponent,
     BookAddFormComponent
   ],
-  exports: [BookListComponent, BookGridComponent, BookViewToggleComponent]
+  exports: [BookAddFormComponent, BookListComponent, BookGridComponent, BookViewToggleComponent]
 })
 export class BookModule { }
