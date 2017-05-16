@@ -6,7 +6,7 @@
 <div class="price">{{ book.price }}</div>
 <div class="actions">
   <div class="btn-group btn-sm">
-    <button class="btn" (click)="rateUp()">+</button>
-    <button class="btn" (click)="rateDown()">-</button>
+    <button class="btn" (click.once)="rateUp()">+</button>
+    <button class="btn" (click-once)="rateDown()">-</button>
   </div>
 </div>
