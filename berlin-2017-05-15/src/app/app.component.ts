@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Book } from './book/models/book';
 import { ViewMode } from './book/book-view-toggle/view-mode';
+import { Observable } from "rxjs/Observable";
 
 @Component({
   selector: 'app-root',
@@ -10,16 +11,16 @@ import { ViewMode } from './book/book-view-toggle/view-mode';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  books: Book[];
+  books$: Observable<Book[]>;
   title = 'app works!';
 
   viewMode = ViewMode;
   currentViewMode = ViewMode.Grid;
 
-  constructor(private booksService: BookService) { }
+  constructor(private bookService: BookService) { }
 
   ngOnInit() {
-    this.books = this.booksService.getAll();
+    this.books$ = this.bookService.getAll();
   }
 
 
@@ -28,6 +29,6 @@ export class AppComponent implements OnInit {
   }
 
   addNewBook(book: Book) {
-    this.books.unshift(book);
+    this.bookService.create(book);
   }
 }
