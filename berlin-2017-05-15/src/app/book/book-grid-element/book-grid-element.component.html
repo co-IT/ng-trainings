@@ -1,16 +1,18 @@
-<div class="thumbnail">
-  <img
-    *ngIf="book.thumbnail; else dummyThumb;"
-    [src]="book.thumbnail"
-    [alt]="book.title">
+<a [routerLink]="['book', book.isbn]">
+  <div class="thumbnail">
+    <img
+      *ngIf="book.thumbnail; else dummyThumb;"
+      [src]="book.thumbnail"
+      [alt]="book.title">
 
-  <ng-template #dummyThumb>
-    <img src="https://dummyimage.com/180x250/333/fff&text=Buch" [alt]="book.title">
-  </ng-template>
-</div>
-<div class="title">{{ book.title }} ({{ book.rating }})</div>
-<div class="authors">{{ book.authors }}</div>
-<div class="price">{{ book.price }}</div>
+    <ng-template #dummyThumb>
+      <img src="https://dummyimage.com/180x250/333/fff&text=Buch" [alt]="book.title">
+    </ng-template>
+  </div>
+  <div class="title">{{ book.title }} ({{ book.rating }})</div>
+  <div class="authors">{{ book.authors }}</div>
+  <div class="price">{{ book.price }}</div>
+</a>
 <div class="actions">
   <div class="btn-group btn-sm">
     <button class="btn" (click.once)="rateUp()">+</button>

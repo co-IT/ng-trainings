@@ -1,3 +1,4 @@
+import { BookRoutingModule } from './book.routing.module';
 import { GoogleBooksService } from './core/google-books.service';
 import { HttpModule } from '@angular/http';
 import { BookService } from './core/book.service';
@@ -14,13 +15,17 @@ import { BookListElementComponent } from './book-list-element/book-list-element.
 import { BookViewToggleComponent } from './book-view-toggle/book-view-toggle.component';
 import { BookAddFormComponent } from './book-add-form/book-add-form.component';
 import { BookSearchComponent } from './book-search/book-search.component';
+import { BookDashboardComponent } from './book-dashboard/book-dashboard.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     HttpModule,
-    UtilitiesModule
+    UtilitiesModule,
+
+    BookRoutingModule
   ],
   declarations: [
     BookGridElementComponent,
@@ -29,9 +34,18 @@ import { BookSearchComponent } from './book-search/book-search.component';
     BookListElementComponent,
     BookViewToggleComponent,
     BookAddFormComponent,
-    BookSearchComponent
+    BookSearchComponent,
+    BookDashboardComponent,
+    BookDetailsComponent
   ],
-  exports: [BookAddFormComponent, BookListComponent, BookGridComponent, BookViewToggleComponent, BookSearchComponent],
+  exports: [
+    BookAddFormComponent,
+    BookListComponent,
+    BookGridComponent,
+    BookViewToggleComponent,
+    BookSearchComponent,
+    BookDashboardComponent
+  ],
   providers: [GoogleBooksService, BookService]
 })
 export class BookModule { }
