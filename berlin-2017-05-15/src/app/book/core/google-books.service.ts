@@ -14,18 +14,22 @@ export class GoogleBooksService {
     return this.http
       .get(`https://www.googleapis.com/books/v1/volumes?q=${query}`)
       .map(response => response.json())
-      .map(result => result.items.map(b => {
-        const book = new Book('',
-                              b.volumeInfo.title,
-                              b.saleInfo.listPrice,
-                              b.volumeInfo.authors);
+      .map(result => {
+        if (!result.items) { return []; }
 
-        book.thumbnail = b.volumeInfo.imageLinks ? b.volumeInfo.imageLinks.thumbnail : null;
-        book.rating = b.volumeInfo.averageRating ? b.volumeInfo.averageRating : 0;
-        book.description = b.volumeInfo.description;
+        return result.items.map(b => {
+          const book = new Book('',
+                                b.volumeInfo.title,
+                                b.saleInfo.listPrice,
+                                b.volumeInfo.authors);
 
-        return book;
-      }));
+          book.thumbnail = b.volumeInfo.imageLinks ? b.volumeInfo.imageLinks.thumbnail : null;
+          book.rating = b.volumeInfo.averageRating ? b.volumeInfo.averageRating : 0;
+          book.description = b.volumeInfo.description;
+
+          return book;
+        });
+      });
   }
 
 }
