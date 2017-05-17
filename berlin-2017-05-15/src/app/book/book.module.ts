@@ -1,3 +1,4 @@
+import { GoogleBooksService } from './core/google-books.service';
 import { HttpModule } from '@angular/http';
 import { BookService } from './core/book.service';
 import { FormsModule } from '@angular/forms';
@@ -31,6 +32,6 @@ import { BookSearchComponent } from './book-search/book-search.component';
     BookSearchComponent
   ],
   exports: [BookAddFormComponent, BookListComponent, BookGridComponent, BookViewToggleComponent, BookSearchComponent],
-  providers: [BookService]
+  providers: [GoogleBooksService, BookService]
 })
 export class BookModule { }
