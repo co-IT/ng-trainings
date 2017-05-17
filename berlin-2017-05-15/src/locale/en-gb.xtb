@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE translationbundle [
+<!ELEMENT translationbundle (translation)*>
+<!ATTLIST translationbundle lang CDATA #REQUIRED>
+
+<!ELEMENT translation (#PCDATA|ph)*>
+<!ATTLIST translation id CDATA #REQUIRED>
+<!ATTLIST translation desc CDATA #IMPLIED>
+<!ATTLIST translation meaning CDATA #IMPLIED>
+<!ATTLIST translation xml:space (default|preserve) "default">
+
+<!ELEMENT ph (#PCDATA|ex)*>
+<!ATTLIST ph name CDATA #REQUIRED>
+
+<!ELEMENT ex (#PCDATA)>
+]>
+<translationbundle lang="en">
+  <translation id="BookAddForm:isbn:label">ISBN-EN</translation>
+  <translation id="BookAddForm:isbn:input:placeholder">Type identification number</translation>
+  <translation id="BookAddForm:isbn:validation">Please insert a valid ISBN (max. 10 characters)</translation>
+  <translation id="BookAddForm:title:validation" desc="Missing title">Please provide a title</translation>
+</translationbundle>

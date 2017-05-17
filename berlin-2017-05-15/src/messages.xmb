@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE messagebundle [
+<!ELEMENT messagebundle (msg)*>
+<!ATTLIST messagebundle class CDATA #IMPLIED>
+
+<!ELEMENT msg (#PCDATA|ph|source)*>
+<!ATTLIST msg id CDATA #IMPLIED>
+<!ATTLIST msg seq CDATA #IMPLIED>
+<!ATTLIST msg name CDATA #IMPLIED>
+<!ATTLIST msg desc CDATA #IMPLIED>
+<!ATTLIST msg meaning CDATA #IMPLIED>
+<!ATTLIST msg obsolete (obsolete) #IMPLIED>
+<!ATTLIST msg xml:space (default|preserve) "default">
+<!ATTLIST msg is_hidden CDATA #IMPLIED>
+
+<!ELEMENT source (#PCDATA)>
+
+<!ELEMENT ph (#PCDATA|ex)*>
+<!ATTLIST ph name CDATA #REQUIRED>
+
+<!ELEMENT ex (#PCDATA)>
+]>
+<messagebundle>
+  <msg id="BookAddForm:isbn:label"><source>C:/workbench/trainings/angular/ng-trainings/berlin-2017-05-15/src/app/book/book-add-form/book-add-form.component.ts:9,21</source>
+        <ph name="TAG_INPUT"><ex>&lt;input&gt;</ex></ph>
+          <ph name="START_TAG_SPAN"><ex>&lt;span&gt;</ex></ph>
+            Bitte geben Sie eine ISBN-Nummer an.
+          <ph name="CLOSE_TAG_SPAN"><ex>&lt;/span&gt;</ex></ph>
+      </msg>
+</messagebundle>

@@ -23,7 +23,6 @@ export class BookAddFormComponent implements OnInit {
   }
 
   addBook() {
-    console.log(this.book);
     this.add.emit(this.book);
   }
 }
