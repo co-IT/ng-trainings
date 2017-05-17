@@ -1,6 +1,6 @@
-<h1>
-  {{title}}
-</h1>
+<tr-top-navigation>
+  <tr-book-search></tr-book-search>
+</tr-top-navigation>
 
 <div class="container">
 
@@ -8,11 +8,14 @@
 
   <hr>
 
-  <tr-book-view-toggle (change)="setCurrentViewMode($event)"></tr-book-view-toggle>
+  <tr-book-view-toggle
+    (change)="setCurrentViewMode($event)">
+  </tr-book-view-toggle>
 
   <tr-book-grid
     *ngIf="currentViewMode == viewMode.Grid; else listView;"
-    [books]="books$ | async"></tr-book-grid>
+    [books]="books$ | async">
+  </tr-book-grid>
 
   <ng-template #listView>
     <tr-book-list [books]="books$ | async"></tr-book-list>

@@ -1,0 +1,20 @@
+<form class="search">
+  <label>
+    <input
+      #searchQuery
+      (input)="queryChange.emit(searchQuery.value)"
+      type="text"
+      placeholder="Bücher suchen...">
+  </label>
+</form>
+
+<div class="search-results">
+  <div class="container">
+    <!-- <tr-book-grid></tr-book-grid> -->
+  </div>
+</div>
+
+<!-- .search-results>.container>tr-book-grid -->
+
+<!-- form.search>label>input[placeholder=Bücher_suchen...] -->
+
