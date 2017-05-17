@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { Book } from './../models/book';
 import { GoogleBooksService } from './../core/google-books.service';
 import { Component, OnInit, EventEmitter } from '@angular/core';
@@ -5,6 +6,8 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/do';
 
 @Component({
   selector: 'tr-book-search',
@@ -12,25 +15,18 @@ import 'rxjs/add/operator/filter';
   styleUrls: ['./book-search.component.sass']
 })
 export class BookSearchComponent implements OnInit {
+  searchViewIsDisabled = true;
 
-  books: Book[];
+  books$: Observable<Book[]>;
   queryChange = new EventEmitter<string>();
 
   constructor(private googleBooks: GoogleBooksService) {
-    this.queryChange
+    this.books$ = this.queryChange
       .debounceTime(500)
       .distinctUntilChanged()
       .filter(query => query && query.length > 0)
-      .subscribe(query => {
-        this.googleBooks
-          .getByQuery(query)
-          .subscribe(books => {
-            this.books = books;
-            console.log(this.books);
-          });
-        // service einfügen, der die Buchdaten zur Verfügung stellt.
-        console.log('Suche: ', query);
-      });
+      .do(() => this.searchViewIsDisabled = false)
+      .switchMap(query => this.googleBooks.getByQuery(query));
   }
 
   ngOnInit() {

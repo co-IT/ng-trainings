@@ -8,9 +8,19 @@
   </label>
 </form>
 
-<div class="search-results">
+<div [hidden]="searchViewIsDisabled" class="search-results">
   <div class="container">
-    <tr-book-grid [books]="books"></tr-book-grid>
+    <button class="btn btn-default"
+           (click)="searchViewIsDisabled = true">
+      Schließen
+    </button>
+    <tr-book-grid
+      *ngIf="books$ | async as books; else loadingSpinner"
+      [books]="books">
+    </tr-book-grid>
+    <ng-template #loadingSpinner>
+      <div class="spinner"></div>
+    </ng-template>
   </div>
 </div>
 
