@@ -1,3 +1,4 @@
+import { BookDetailsGuard } from './core/guards/book-details.guard';
 import { BookResolver } from './core/resolvers/book.resolver';
 import { BookDashboardComponent } from './book-dashboard/book-dashboard.component';
 import { NgModule } from '@angular/core';
@@ -10,7 +11,8 @@ const routes: Route[] = [
   {
     path: 'book/:isbn',
     component: BookDetailsComponent,
-    resolve: { book: BookResolver }
+    resolve: { book: BookResolver },
+    canActivate: [BookDetailsGuard]
   }
 ];
 
@@ -19,6 +21,6 @@ const routes: Route[] = [
     RouterModule.forChild(routes)
   ],
   exports: [RouterModule],
-  providers: [BookResolver]
+  providers: [BookDetailsGuard, BookResolver]
 })
 export class BookRoutingModule { }
