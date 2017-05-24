@@ -14,4 +14,8 @@ export class AppComponent {
     new Book('7283322342', 'Aurelia', ['Rob Eisenberg'], 24),
     new Book('7283432342', 'Vue.JS', ['André Staltz'], 28)
   ];
+
+  addToTop(book: Book) {
+    this.books.unshift(book);
+  }
 }
