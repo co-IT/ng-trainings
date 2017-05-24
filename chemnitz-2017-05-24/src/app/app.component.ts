@@ -9,9 +9,9 @@ import { Book } from './book/models/book';
 })
 export class AppComponent {
   title = 'app works!';
-  bookData = new Book(
-    '7283642342',
-    'Angular',
-     ['Papa Mîsko'],
-     32);
+  books = [
+    new Book('7283642342', 'Angular', ['Papa Mîsko'], 32),
+    new Book('7283322342', 'Aurelia', ['Rob Eisenberg'], 24),
+    new Book('7283432342', 'Vue.JS', ['André Staltz'], 28)
+  ];
 }

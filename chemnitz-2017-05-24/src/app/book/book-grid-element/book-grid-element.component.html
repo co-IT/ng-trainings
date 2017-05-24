@@ -5,4 +5,13 @@
 <div class="authors">{{ book.authors }}</div>
 <div class="price">{{ book.price }}</div>
 <div class="rating">{{ book.rating }}</div>
-<div class="actions"></div>
+
+<div class="actions">
+  <div class="btn-group">
+    <button (click)="rateUp()" class="btn btn-default">+</button>
+    <button (click)="rateDown()" class="btn btn-default">-</button>
+  </div>
+</div>
+
+
+<!-- .btn-group>button.btn.btn-default*2 -->
