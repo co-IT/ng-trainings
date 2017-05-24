@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { BookService } from './book/core/book.service';
+import { Component, OnInit } from '@angular/core';
 
 import { Book } from './book/models/book';
 
@@ -7,15 +8,4 @@ import { Book } from './book/models/book';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'app works!';
-  books = [
-    new Book('7283642342', 'Angular', ['Papa Mîsko'], 32),
-    new Book('7283322342', 'Aurelia', ['Rob Eisenberg'], 24),
-    new Book('7283432342', 'Vue.JS', ['André Staltz'], 28)
-  ];
-
-  addToTop(book: Book) {
-    this.books.unshift(book);
-  }
-}
+export class AppComponent { }

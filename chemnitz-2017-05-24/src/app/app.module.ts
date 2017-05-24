@@ -4,19 +4,24 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { BookModule } from './book/book.module';
+import { AppRoutingModule, RouterModule } from './app.routing.module';
 
 import { AppComponent } from './app.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    RouterModule,
 
-    BookModule
+    BookModule,
+    AppRoutingModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

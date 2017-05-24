@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>
+    {{title}}
+  </h1>
+
+  <app-book-add-form (create)="addToTop($event)"></app-book-add-form>
+  <hr>
+  <app-book-grid [books]="books"></app-book-grid>
+</div>
