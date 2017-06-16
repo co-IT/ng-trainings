@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Book } from './../models/book';
 
 @Component({
@@ -7,6 +8,7 @@ import { Book } from './../models/book';
   styleUrls: ['./book-add-form.component.css']
 })
 export class BookAddFormComponent implements OnInit {
+  book = new Book('', '', [], 0);
 
   @Output() create = new EventEmitter<Book>();
 
@@ -15,13 +17,8 @@ export class BookAddFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  createBook(isbn, title, authors, price) {
-    this.create.emit(
-      new Book(isbn.value, title.value, authors.value,
-               price.value)
-    );
-
-    isbn.value = title.value = authors.value =
-    price.value = '';
+  createBook(form: NgForm) {
+    this.create.emit(Object.assign(new Book('', '', [], 0), this.book));
+    form.reset();
   }
 }

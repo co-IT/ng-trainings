@@ -10,6 +10,7 @@ import { BookAddFormComponent } from './book-add-form/book-add-form.component';
 import { BookDashboardComponent } from './book-dashboard/book-dashboard.component';
 
 import { BookService } from './core/book.service';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { BookService } from './core/book.service';
     RouterModule,
     BookRoutingModule,
   ],
-  declarations: [BookGridElementComponent, BookGridComponent, BookAddFormComponent, BookDashboardComponent],
+  declarations: [BookGridElementComponent, BookGridComponent, BookAddFormComponent, BookDashboardComponent, BookDetailsComponent],
   exports: [BookGridElementComponent, BookGridComponent, BookAddFormComponent, BookDashboardComponent],
   providers: [BookService]
 })
