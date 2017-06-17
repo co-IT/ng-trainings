@@ -1,5 +1,13 @@
-<app-book-grid *ngIf="isGridView; else listView"></app-book-grid>
+<!--<app-book-grid *ngIf="isGridView; else listView"></app-book-grid>
 
 <ng-template #listView>
   <app-book-list></app-book-list>
 </ng-template>
+
+<hr>-->
+
+<a routerLink="">Kachelansicht</a>
+<a [routerLink]="['list', 'hallo']">Listenansicht</a>
+<a [routerLink]="['list', 'tschüß']">Listenansicht 2</a>
+
+<router-outlet></router-outlet>
