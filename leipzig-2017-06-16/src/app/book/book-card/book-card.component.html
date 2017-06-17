@@ -1,3 +1,15 @@
-<p>
-  book-card works!
-</p>
+<!-- .thumbnail>img+.title+.authors+.price+.rating+.actions -->
+<div class="thumbnail">
+  <img src="https://dummyimage.com/180x250/333/fff&text={{data.title}}" alt="">
+</div>
+<div class="title">{{ data.title }}</div>
+<div class="authors">{{ data.authors }}</div>
+<div class="price">{{ data.price }}</div>
+<div class="rating">{{ data.rating }}</div>
+<div class="actions">
+  <!-- .btn-group>button.btn.btn-default*2 -->
+  <div class="btn-group">
+    <button (click)="increment()" class="btn btn-default">+</button>
+    <button (click)="decrement()" class="btn btn-default">-</button>
+  </div>
+</div>
