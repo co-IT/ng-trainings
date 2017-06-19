@@ -1,7 +1,7 @@
 export class Book {
   subtitle: string;
   price: number;
-  rating: number;
+  rating = 0;
 
   thumbnail: string;
 

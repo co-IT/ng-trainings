@@ -7,11 +7,9 @@ import { Book } from './book/models/book';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'app';
-
-  book = new Book(
-    '39482324',
-    'Angular',
-    ['Mîsko Hévéry']
-  );
+  books = [
+    new Book('394822324', 'Angular', ['Mîsko Hévéry']),
+    new Book('394821323', 'Aurelia', ['Rob Eisenberg']),
+    new Book('394843221', 'Vue.JS', ['André Staltz'])
+  ];
 }

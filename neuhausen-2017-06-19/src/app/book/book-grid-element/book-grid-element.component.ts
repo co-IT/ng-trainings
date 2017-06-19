@@ -15,4 +15,11 @@ export class BookGridElementComponent implements OnInit {
   ngOnInit() {
   }
 
+  rateUp() {
+    this.book.rating++;
+  }
+
+  rateDown() {
+    this.book.rating--;
+  }
 }
