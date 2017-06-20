@@ -15,6 +15,10 @@ export class AppComponent {
     new Book('394843221', 'Vue.JS', ['André Staltz'])
   ];
 
+  add(book: Book) {
+    this.books.unshift(book);
+  }
+
   updateViewMode(isGridView: boolean) {
     this.isGridView = isGridView;
   }

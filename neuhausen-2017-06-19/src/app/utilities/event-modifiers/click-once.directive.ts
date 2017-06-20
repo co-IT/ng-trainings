@@ -21,10 +21,10 @@ export class ClickOnceDirective implements OnInit {
       this.element.nativeElement,
       'click',
       event => {
-        const parent = this.element.nativeElement.parentNode
-        parent.childNodes.map((elem) => {
-          this.renderer.setAttribute(elem, 'disabled', 'true');
-        })
+        this.renderer.setAttribute(this.element.nativeElement, 'disabled', 'true');
+        // const parent = this.element.nativeElement.parentNode
+        // parent.childNodes.map((elem) => {
+        // })
         this.clickOnce.emit(event);
         this.unsubscribe();
       }

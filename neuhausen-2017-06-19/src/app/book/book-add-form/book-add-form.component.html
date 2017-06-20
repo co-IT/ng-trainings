@@ -1,0 +1,66 @@
+<form #bookForm="ngForm">
+  <section class="form-block">
+    <label>Add new Book</label>
+    <!--(.form-group>label+input.form-control)*3-->
+    <div class="form-group">
+      <label for="book_form_isbn">ISBN</label>
+      <label
+        [class.invalid]="isbn.invalid && (isbn.dirty || isbn.touched)"
+        class="tooltip tooltip-validation tooltip-top-left tooltip-md">
+        <input
+          #isbn="ngModel"
+          [(ngModel)]="book.isbn"
+          name="isbn"
+          required
+          minlength="10"
+          maxlength="10"
+          id="book_form_isbn"
+          type="text"
+          class="form-control">
+        <span class="tooltip-content">
+          Please insert at least 10 characters.
+        </span>
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="book_form_title">Title</label>
+      <input
+        #title="ngModel"
+        [(ngModel)]="book.title"
+        name="title"
+        id="book_form_title"
+        type="text"
+        class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="book_form_authors">Authors</label>
+      <input
+        #authors="ngModel"
+        [(ngModel)]="book.authors"
+        minLength="3"
+        name="authors"
+        id="book_form_authors"
+        type="text"
+        class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="book_form_price">Price</label>
+      <input
+        #price="ngModel"
+        [(ngModel)]="book.price"
+        number
+        required
+        name="price"
+        id="book_form_price"
+        type="text"
+        class="form-control">
+    </div>
+    <button
+      [disabled]="bookForm.invalid"
+      type="button"
+      (click)="createBook(bookForm)"
+      class="btn btn-primary">
+      Add
+    </button>
+  </section>
+</form>

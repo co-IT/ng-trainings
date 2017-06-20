@@ -5,6 +5,10 @@ export class Book {
 
   thumbnail: string;
 
+  static empty() {
+    return new Book('', '', []);
+  }
+
   constructor(
     public isbn: string,
     public title: string,
