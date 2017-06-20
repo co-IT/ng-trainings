@@ -1,0 +1,5 @@
+<tr-book-list-element
+  [book]="book"
+  *ngFor="let book of books"
+  (rate)="sort($event)">
+</tr-book-list-element>

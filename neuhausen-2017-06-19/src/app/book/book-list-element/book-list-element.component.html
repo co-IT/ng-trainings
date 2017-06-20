@@ -1,0 +1,30 @@
+<div class="thumbnail">
+  <img *ngIf="book.thumbnail; else dummyImage"
+        src="{{ book.thumbnail }}"
+        alt="{{ book.title }}">
+
+  <ng-template #dummyImage>
+    <img src="https://dummyimage.com/180x100/333/fff&text={{book.title}}"
+         alt="{{ book.title }}">
+  </ng-template>
+</div>
+<!-- .content>.title+.authors+.price+.rating -->
+<div class="content">
+  <div class="title">{{ book.title }}</div>
+  <div class="authors">{{ book.authors }}</div>
+  <div class="price">{{ book.price }} </div>
+  <div class="rating">{{ book.rating }}</div>
+</div>
+<!-- .actions>.btn-group>button.btn.btn-default*2 -->
+<div class="actions">
+  <div class="btn-group">
+
+    <button
+      (click)="rateUp()"
+      class="btn btn-default">+</button>
+    <button
+      (click)="rateDown()"
+      class="btn btn-default">-</button>
+
+  </div>
+</div>
