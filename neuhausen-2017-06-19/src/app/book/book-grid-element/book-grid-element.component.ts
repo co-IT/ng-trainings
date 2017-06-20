@@ -1,4 +1,8 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { Component,
+         OnInit,
+         Input,
+         Output,
+         EventEmitter } from '@angular/core';
 
 import { Book } from '../models/book';
 
@@ -8,7 +12,10 @@ import { Book } from '../models/book';
   styleUrls: ['./book-grid-element.component.sass']
 })
 export class BookGridElementComponent implements OnInit {
-  @Input() book: Book; // <tr-book-grid-element [book]="bookData">..
+  // <tr-book-grid-element [book]="bookData">..
+  @Input() book: Book;
+  // <tr-book-grid-element (rate)="sort($event)">..
+  @Output() rate = new EventEmitter<Book>();
 
   constructor() { }
 
@@ -17,9 +24,11 @@ export class BookGridElementComponent implements OnInit {
 
   rateUp() {
     this.book.rating++;
+    this.rate.emit(this.book);
   }
 
   rateDown() {
     this.book.rating--;
+    this.rate.emit(this.book);
   }
 }
