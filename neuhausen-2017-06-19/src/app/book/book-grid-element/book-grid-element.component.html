@@ -1,5 +1,6 @@
 <div class="thumbnail">
   <img *ngIf="book.thumbnail; else dummyImage"
+        class="cover"
         src="{{ book.thumbnail }}"
         alt="{{ book.title }}">
 
@@ -21,10 +22,14 @@
 
     <button
       (click-once)="rateUp()"
+      name="book-add-rate-up"
       class="btn btn-default">+</button>
     <button
       (click-once)="rateDown()"
       class="btn btn-default">-</button>
 
+    <a [routerLink]="['/details', book.isbn]">
+      Details
+    </a>
   </div>
 </div>

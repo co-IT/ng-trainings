@@ -1,0 +1,14 @@
+<tr-book-add-form (create)="add($event)"></tr-book-add-form>
+
+<hr>
+
+<tr-toggle-view-mode (change)="updateViewMode($event)"></tr-toggle-view-mode>
+
+<tr-book-grid
+  *ngIf="isGridView; else listView"
+  [books]="books | async">
+</tr-book-grid>
+
+<ng-template #listView>
+  <tr-book-list [books]="books | async"></tr-book-list>
+</ng-template>
