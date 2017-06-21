@@ -1,3 +1,5 @@
+import { ClickOnceDirective } from './../../utilities/event-modifiers/click-once.directive';
+import { UtilitiesModule } from './../../utilities/utilities.module';
 import { Book } from './../models/book';
 import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
@@ -31,7 +33,7 @@ describe('BookGridElementComponent', () => {
     beforeEach(() => {
 
       TestBed.configureTestingModule({
-        declarations: [BookGridElementComponent]
+        declarations: [BookGridElementComponent, ClickOnceDirective]
       }).compileComponents();
 
       fixture = TestBed.createComponent(BookGridElementComponent);
