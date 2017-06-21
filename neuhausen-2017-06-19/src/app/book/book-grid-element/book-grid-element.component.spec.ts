@@ -17,9 +17,10 @@ describe('BookGridElementComponent', () => {
         const gridElement = new BookGridElementComponent();
         gridElement.book = new Book('', '', []);
 
+        gridElement.rateUp();
         gridElement.rateDown();
 
-        expect(gridElement.book.rating).toEqual(-1);
+        expect(gridElement.book.rating).toEqual(0);
       });
     });
   });
