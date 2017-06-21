@@ -110,7 +110,6 @@ describe('BookGridElementComponent', () => {
         fixture.detectChanges();
 
         expect(gridElement.book.rating).toEqual(1);
->>>>>>> (component:grid-element) add one unit and one shallow test
         expect(ratingLbl.nativeElement.innerHTML).toEqual('1');
       });
     })
