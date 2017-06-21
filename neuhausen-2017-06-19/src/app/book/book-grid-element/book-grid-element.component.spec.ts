@@ -98,7 +98,7 @@ describe('BookGridElementComponent', () => {
       gridElement = fixture.componentInstance;
       gridElement.book = new Book('', '', []);
 
-      rateUpBtn = fixture.debugElement.query(By.css('#rateUpBtn'));
+      rateUpBtn = fixture.debugElement.query(By.css('[name=book-add-rate-up]'));
       ratingLbl = fixture.debugElement.query(By.css('.rating'));
     });
 
