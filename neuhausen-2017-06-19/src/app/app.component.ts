@@ -24,11 +24,11 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.books = this.bookService.all();
 
-    // this.subscription = this.bookService
-    //   .getBookTitles()
-    //   .subscribe(titles => {
-    //     console.log(titles)
-    //   });
+    this.subscription = this.bookService
+      .getBookTitles()
+      .subscribe(titles => {
+        console.log(titles);
+      });
   }
 
   ngOnDestroy(): void {
