@@ -11,4 +11,13 @@ export class AppComponent {
    new Book('654321', 'Aurelia', ['Rob Eisenberg']),
    new Book('555555', 'Vue.js', ['Evan You'])
    ];
+   isGridView = true;
+
+   changeViewMode(isGridView) {
+     this.isGridView = isGridView;
+   }
+
+   addBook(book: Book){
+     this.books.unshift(book);
+   }
 }

@@ -1,0 +1,48 @@
+<!--form>section.form-block>label+.form-group*4>label+input.formcontrol -->
+<form #addForm="ngForm">
+  <section class="form-block">
+    <label>Buch hinzufügen</label>
+    <div class="form-group">
+      <label for="book_form_title">Title</label>
+      <input
+      #title="ngModel"
+      [(ngModel)]="book.title"
+      name="title"
+      id="book_form_title"
+      type="text"
+      class="formcontrol">
+    </div>
+    <div class="form-group">
+      <label for="book_form_isbn">ISBN</label>
+      <input #isbn="ngModel"
+      [(ngModel)]="book.isbn"
+      id="book_form_isbn"
+      name="isbn"
+      type="text"
+      class="formcontrol">
+    </div>
+    <div class="form-group">
+      <label for="book_form_price">Preis</label>
+       <input #price="ngModel"
+       [(ngModel)]="book.price"
+       id="book_form_price"
+       name="preis"
+       type="text"
+       class="formcontrol">
+      </div>
+    <div class="form-group">
+      <label for="book_form_authors">Authoren</label>
+      <input #authors="ngModel"
+      [(ngModel)]="book.authors"
+      id="book_form_authors"
+      type="text"
+      name="authors"
+      class="formcontrol">
+    </div>
+    <button class="btn btn-primary"
+            type="button"
+            (click)="createBook(addForm)">
+            Anlegen
+    </button>
+  </section>
+</form>

@@ -1,1 +1,1 @@
-<tr-book-grid-element *ngFor="let book of books" [book]="book"></tr-book-grid-element>
+<tr-book-grid-element *ngFor="let book of books" [book]="book" (rated)="sort($event)"></tr-book-grid-element>

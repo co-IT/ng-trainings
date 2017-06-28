@@ -13,4 +13,8 @@ export class BookGridComponent implements OnInit {
   ngOnInit() {
   }
 
+  sort(book: Book) {
+    this.books.sort((a, b) => b.rating - a.rating);
+  }
+
 }
