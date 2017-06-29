@@ -8,18 +8,30 @@
       #title="ngModel"
       [(ngModel)]="book.title"
       name="title"
+      required
       id="book_form_title"
       type="text"
       class="formcontrol">
     </div>
     <div class="form-group">
-      <label for="book_form_isbn">ISBN</label>
-      <input #isbn="ngModel"
-      [(ngModel)]="book.isbn"
-      id="book_form_isbn"
-      name="isbn"
-      type="text"
-      class="formcontrol">
+      <label for="book_form_isbn">ISBN-10</label>
+       <label [class.invalid]="
+        isbn.invalid
+        && (isbn.dirty || isbn.touched)"
+        class="tooltip tooltip-validation tooltip-top-left tooltip-md">
+          <input #isbn="ngModel"
+            [(ngModel)]="book.isbn"
+            id="book_form_isbn"
+            required
+            minlength="10"
+            maxlength="10"
+            name="isbn"
+            type="text"
+            class="formcontrol">
+            <span class="tooltip-content">
+              Eine ISBN-10 besteht aus 10 Zeichen
+            </span>
+    </label>
     </div>
     <div class="form-group">
       <label for="book_form_price">Preis</label>
@@ -41,6 +53,7 @@
     </div>
     <button class="btn btn-primary"
             type="button"
+            [disabled]="addForm.invalid"
             (click)="createBook(addForm)">
             Anlegen
     </button>

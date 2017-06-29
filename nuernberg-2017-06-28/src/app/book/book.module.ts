@@ -9,6 +9,7 @@ import { ToggleViewModeComponent } from './toggle-view-mode/toggle-view-mode.com
 import { BookAddFormComponent } from './book-add-form/book-add-form.component';
 import { UtilitiesModule } from 'app/utilities/utilities.module';
 import { FormsModule } from '@angular/forms';
+import { BookService } from "app/book/core/book.service";
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { FormsModule } from '@angular/forms';
     BookListComponent,
     BookListElementComponent,
     ToggleViewModeComponent,
-    BookAddFormComponent]
+    BookAddFormComponent],
+  providers: [BookService]
 })
 export class BookModule { }
