@@ -5,6 +5,7 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/map';
 import { Http } from '@angular/http';
+import { environment } from "environments/environment";
 
 @Injectable()
 export class BookService {
@@ -32,7 +33,7 @@ export class BookService {
 
    getFromApi(): Observable<Book[]> {
      return this.http
-     .get('https://book-monkey2-api.angular-buch.com/books')
+     .get(`${environment.apiEndPoint}books`)
         //.delay(2000)
         .map(response => response.json())
         .map(books => {
@@ -69,6 +70,18 @@ export class BookService {
    sort() {
       this.books.sort((a, b) => b.rating - a.rating);
 
+   }
+
+   getBookByISBN(isbn: string) {
+    return this.http.
+        get(`${environment.apiEndPoint}book/${isbn}`)
+        .map(response => response.json())
+        .map(book => {
+          const b = new Book(book.isbn, book.title, book.authors);
+          b.price = 0;
+          b.thumbnail = book.thumbnails[0].url;
+          return b;
+        });
    }
 
 }
