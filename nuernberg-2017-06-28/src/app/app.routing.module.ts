@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { NotFoundComponent } from './not-found/not-found/not-found.component';
 
 const routes: Route[] = [
-  {path: '**', loadChildren: './not-found/not-found.module#NotFoundModule'}
+  {path: '', loadChildren: './not-found/not-found.module#NotFoundModule'}
 ];
 
 @NgModule({
