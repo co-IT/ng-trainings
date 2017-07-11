@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Book } from './book/models/book';
 
 @Component({
   selector: 'tr-root',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'app';
+ book: Book = new Book('123456', 'Angular', ['Misko Hevery'], 30)
 }
