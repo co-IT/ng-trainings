@@ -1,5 +1,16 @@
 <!--The whole content below can be removed with the new code.-->
-<tr-book-grid-element [bookInput]="book">
 
-</tr-book-grid-element>
+<tr-book-list
+ *ngIf="viewState == 'list'; else gridView"
+ [books]="books">
+</tr-book-list>
 
+<ng-template #gridView>
+  <tr-book-grid [books]="books"></tr-book-grid>
+</ng-template>
+
+<tr-toggle-view-mode
+  (toggle)="setViewState($event)">
+</tr-toggle-view-mode>
+
+<tr-book-add-form (addBook)="addBook($event)"></tr-book-add-form>

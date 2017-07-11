@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Book } from '../models/book'
 
 @Component({
@@ -8,10 +8,20 @@ import { Book } from '../models/book'
 })
 export class BookGridElementComponent implements OnInit {
   @Input() bookInput: Book;
-
+  @Output() rated: EventEmitter<Book> = new EventEmitter<Book>();
   constructor() { }
 
   ngOnInit() {
+  }
+
+  rateUp() {
+    this.bookInput.rating++;
+    this.rated.emit(this.bookInput);
+  }
+
+  rateDown() {
+    this.bookInput.rating--;
+    this.rated.emit(this.bookInput);
   }
 
 }

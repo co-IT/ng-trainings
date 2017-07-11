@@ -1,0 +1,25 @@
+<form action="">
+  <section class="form-block">
+    <label> Add New Book Form</label>
+    <div class="form-group">
+      <label for="book_form_isbn">ISBN</label>
+      <input #isbn id="book-form_isbn" type="text" class="formcontrol">
+    </div>
+    <div class="form-group">
+      <label for="book_form_title">TITEL</label>
+      <input #title id="book_form_title" type="text" class="formcontrol">
+    </div>
+    <div class="form-group">
+      <label for="book_form_authors">AUTOREN</label>
+      <input #authors id="book_form_authors" type="text" class="formcontrol">
+    </div>
+    <div class="form-group">
+      <label for="price">PREIS</label>
+      <input #price id="price" type="text" class="formcontrol">
+    </div>
+    <button class="btn btn-primary"
+      type="button"
+      (click)="createBook(isbn, title, authors, price)">
+    </button>
+  </section>
+</form>
