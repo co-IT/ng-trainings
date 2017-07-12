@@ -2,15 +2,16 @@
 
 <tr-book-list
  *ngIf="viewState == 'list'; else gridView"
- [books]="books">
+ [books]="books | async">
 </tr-book-list>
 
 <ng-template #gridView>
-  <tr-book-grid [books]="books"></tr-book-grid>
+  <tr-book-grid [books]="books | async"></tr-book-grid>
 </ng-template>
 
 <tr-toggle-view-mode
   (toggle)="setViewState($event)">
 </tr-toggle-view-mode>
 
-<tr-book-add-form (addBook)="addBook($event)"></tr-book-add-form>
+<!--<tr-book-add-form (addBook)="addBook($event)"></tr-book-add-form>-->
+<tr-book-add-form-model></tr-book-add-form-model>
