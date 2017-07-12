@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  apiURL: 'https://book-monkey2-api.angular-buch'
+  apiURL: 'https://book-monkey2-api.angular-buch.com'
 };

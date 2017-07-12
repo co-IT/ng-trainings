@@ -28,18 +28,19 @@ export class BookService {
   }
 
   addBookToApi(book: Book) {
-   return this.http.post('https://book-monkey2-api.angular-buch.com/books',
+   return this.http.post('https://book-monkey2-api.angular-buch.com/book',
   {
   isbn: book.isbn,
   title: book.title,
-  authors: book.authors,
+  authors: `book.authors`,
   thumbnails: [
     {
       url: 'https://ichef.bbci.co.uk/news/660/cpsprodpb/025B/production/_85730600_monkey2.jpg',
       title: 'Front Cover'
     }
   ]
-})
+}
+)
   }
 
   all(): Observable<Book[]> {
