@@ -1,0 +1,63 @@
+<form #bookAddForm="ngForm">
+  <section class="form-block">
+    <label> Add New Book Form</label>
+    <div class="form-group">
+      <label for="book_form_isbn">ISBN</label>
+      <label
+        [class.invalid]="isbn.invalid && (isbn.dirty || isbn.touched)"
+        class="tooltip tooltip-validation tooltip-top-left tooltip-md">
+        <input
+          [(ngModel)] = "book.isbn"
+          #isbn="ngModel"
+          required
+          minlength="10"
+          maxlength="10"
+          name="isbn"
+          id="book-form_isbn"
+          type="text"
+          class="formcontrol"
+          >
+          <span class="tooltip-content">
+            Please insert at least 10 characters
+          </span>
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="book_form_title">TITEL</label>
+      <input
+      [(ngModel)] = "book.title"
+      name="title"
+      #title="ngModel"
+      id="book_form_title"
+      type="text"
+      class="formcontrol"
+        >
+    </div>
+    <div class="form-group">
+      <label for="book_form_authors">AUTOREN</label>
+      <input
+      [(ngModel)]="book.authors"
+        name="authors"
+        #authors="ngModel"
+        id="book_form_authors"
+        type="text"
+        class="formcontrol">
+    </div>
+    <div class="form-group">
+      <label for="price">PREIS</label>
+      <input
+      [(ngModel)]="book.price"
+      name="price"
+      #price="ngModel"
+      id="price"
+      type="text"
+      class="formcontrol">
+    </div>
+    <button class="btn btn-primary"
+      [disabled]="bookAddForm.invalid"
+      type="button"
+      (click)="createBook()">
+      Add Book
+    </button>
+  </section>
+</form>
