@@ -1,3 +1,4 @@
+import {ToggleViewModeComponent} from './toggle-view-mode/toggle-view-mode.component';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -9,6 +10,7 @@ import { BookListElementComponent } from './book-list-element/book-list-element.
 import { UtilitiesModule } from '../utilities/utilities.module';
 import { BookAddFormComponent } from './book-add-form/book-add-form.component';
 import { BookAddFormModelComponent } from './book-add-form-model/book-add-form-model.component';
+import { BookDashboardComponent } from './book-dashboard/book-dashboard.component';
 
 @NgModule({
   imports: [
@@ -17,7 +19,18 @@ import { BookAddFormModelComponent } from './book-add-form-model/book-add-form-m
     FormsModule,
     HttpModule
   ],
-  declarations: [BookGridElementComponent, BookGridComponent, BookListComponent, BookListElementComponent, BookAddFormComponent, BookAddFormModelComponent],
-  exports: [UtilitiesModule, BookGridElementComponent, BookGridComponent, BookListComponent, BookListElementComponent, BookAddFormComponent, BookAddFormModelComponent]
+  declarations: [
+    BookGridElementComponent,
+    BookGridComponent,
+    BookListComponent,
+    BookListElementComponent,
+    BookAddFormComponent,
+    BookAddFormModelComponent,
+    BookDashboardComponent,
+    ToggleViewModeComponent
+  ],
+  exports: [
+    BookDashboardComponent
+    ]
 })
 export class BookModule { }

@@ -2,14 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BookModule } from './book/book.module'
 import { AppComponent } from './app.component';
-import { ToggleViewModeComponent } from './toggle-view-mode/toggle-view-mode.component';
 import { UtilitiesModule } from './utilities/utilities.module';
 import { BookService } from './core/book.service';
 
+
 @NgModule({
   declarations: [
-    AppComponent,
-    ToggleViewModeComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -17,6 +16,6 @@ import { BookService } from './core/book.service';
   ],
   providers: [BookService],
   bootstrap: [AppComponent],
-  exports: [ToggleViewModeComponent, UtilitiesModule]
+  exports: [UtilitiesModule]
 })
 export class AppModule { }
