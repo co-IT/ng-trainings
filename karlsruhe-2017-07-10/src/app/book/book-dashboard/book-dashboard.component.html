@@ -1,5 +1,3 @@
-<!--The whole content below can be removed with the new code.-->
-
 <tr-book-list
  *ngIf="viewState == 'list'; else gridView"
  [books]="books | async">
@@ -9,8 +7,7 @@
   <tr-book-grid [books]="books | async"></tr-book-grid>
 </ng-template>
 
-<tr-toggle-view-mode
-  (toggle)="setViewState($event)">
+<tr-toggle-view-mode (toggle)="setViewState($event)">
 </tr-toggle-view-mode>
 
 <!--<tr-book-add-form (addBook)="addBook($event)"></tr-book-add-form>-->

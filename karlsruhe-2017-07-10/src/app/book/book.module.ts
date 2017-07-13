@@ -11,6 +11,7 @@ import { UtilitiesModule } from '../utilities/utilities.module';
 import { BookAddFormComponent } from './book-add-form/book-add-form.component';
 import { BookAddFormModelComponent } from './book-add-form-model/book-add-form-model.component';
 import { BookDashboardComponent } from './book-dashboard/book-dashboard.component';
+import { BookRoutingModule } from './book.routing.module';
 
 @NgModule({
   imports: [
@@ -20,17 +21,16 @@ import { BookDashboardComponent } from './book-dashboard/book-dashboard.componen
     HttpModule
   ],
   declarations: [
+    ToggleViewModeComponent,
     BookGridElementComponent,
     BookGridComponent,
     BookListComponent,
     BookListElementComponent,
     BookAddFormComponent,
     BookAddFormModelComponent,
-    BookDashboardComponent,
-    ToggleViewModeComponent
+    BookDashboardComponent
   ],
   exports: [
-    BookDashboardComponent
-    ]
+    BookDashboardComponent]
 })
 export class BookModule { }
