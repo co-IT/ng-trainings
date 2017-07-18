@@ -1,0 +1,56 @@
+<!-- .thumbnail>img -->
+<h1>Detail</h1>
+
+<div *ngIf="book" class="thumbnail">
+  <img *ngIf="book.thumbnail; else dummyImage"
+    src="{{ book.thumbnail }}"
+    alt="{{ book.title }}">
+
+  <ng-template #dummyImage>
+    <img
+     src="https://dummyimage.com/180x250/333/fff&text={{ book.title }}"
+    alt="{{ book.title }}">
+  </ng-template>
+</div>
+
+<!-- .content>.title+.authors+.price+.rating -->
+<div *ngIf="book" class="content">
+  <!--<div class="isbn">{{ book.isbn }}</div>-->
+  <form [formGroup]="editForm">
+    <section class="form-block">
+      <div class="formgroup">
+        <label for="isbn">ISBN</label>
+        <input id="isbn" formControlName="isbn" type="text">
+      </div>
+      <div class="formgroup" formArrayName="authors">
+        <label>Autoren</label>
+        <div *ngFor="let authorControl of authorsFormArray.controls; index as authorControlNumber" class="form-control">
+          <input
+          [formControlName]="authorControlNumber"
+          type="text"
+          class="form-control"
+          >
+          <button
+            type="button"
+            class="btn btn-warning btn-sm"
+            (click)="removeAuthor(authorControlNumber)">
+              x
+            </button>
+        </div>
+          <div class="form-control">
+            <label></label>
+            <button (click)="addAuthor()" class="btn btn-primary btn-sm">+</button>
+          </div>
+
+      </div>
+      <button [disabled]="editForm.invalid || editForm.pristine" (click)="save()" class="btn btn-primary btn-sm">Speichern</button>
+    </section>
+  </form>
+  <div class="title">{{ book.title }}</div>
+  <!--<div class="authors">{{ book.authors }}</div>-->
+
+  <div class="price">{{ book.price }}</div>
+  <div class="rating">{{ book.rating }}</div>
+</div>
+<!-- .actions>.btn-group>button.btn.btn-default*2 -->
+

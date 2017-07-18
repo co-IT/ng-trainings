@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Book } from '../models/book'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'tr-book-grid-element',

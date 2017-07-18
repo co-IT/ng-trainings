@@ -53,14 +53,15 @@ export class BookService {
     .get(`${environment.apiURL}/books`)
     .map(response => response.json())
     .map(books => {
-      return books.map(book => {
-        const b: Book = new Book(book.isbn, book.title, book.authors, 0)
-        if (book && book.thumbnails && book.thumbnails[0]) {
-          b.thumbnail = book.thumbnails[0].url;
-        }
-        return b;
-      })
+      return books.map(book => this.mapBook(book))
     })
+  }
+
+  getSingleFromApi(isbn: string) {
+    return this.http
+    .get(`${environment.apiURL}/book/${isbn}`)
+    .map(response => response.json())
+    .map(book => this.mapBook(book))
   }
 
   getBookTitles(): Observable<String[]> {
@@ -69,6 +70,18 @@ export class BookService {
             .delay(1000)
             .map(books => books.map(book => book.title))
 
+  }
+
+  saveBook(isbn: string, values: any) {
+    return this.http.put(`${environment.apiURL}/book/${isbn}`, values)
+  }
+
+  mapBook(bookResponse: any): Book {
+    const b: Book = new Book(bookResponse.isbn, bookResponse.title, bookResponse.authors, 0)
+    if (bookResponse && bookResponse.thumbnails && bookResponse.thumbnails[0]) {
+      b.thumbnail = bookResponse.thumbnails[0].url;
+    }
+    return b;
   }
 
 
