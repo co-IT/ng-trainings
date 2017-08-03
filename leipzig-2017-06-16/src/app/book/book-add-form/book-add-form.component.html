@@ -53,7 +53,7 @@
       <label for="">Authors</label>
       <input
         [ngModel]='book.authors'
-        (ngModelChange)="transformAuthors($event)"
+        (change)="transformAuthors($event.target.value)"
         name="authors"
         type="text">
     </div>

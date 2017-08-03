@@ -1,4 +1,6 @@
 export class Book {
+  cover: string;
+
   constructor(
     public isbn: string,
     public title: string,

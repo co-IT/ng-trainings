@@ -22,6 +22,7 @@ export class BookAddFormComponent {
   }
 
   transformAuthors(value: string) {
+    if (!value) { return; }
     this.book.authors = value.split(',');
   }
 }
