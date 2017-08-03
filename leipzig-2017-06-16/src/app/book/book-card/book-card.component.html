@@ -9,7 +9,7 @@
 <div class="actions">
   <!-- .btn-group>button.btn.btn-default*2 -->
   <div class="btn-group">
-    <button (click)="increment()" class="btn btn-default">+</button>
-    <button (click)="decrement()" class="btn btn-default">-</button>
+    <button (click.once)="increment()" class="btn btn-default">+</button>
+    <button (click.once)="decrement()" class="btn btn-default">-</button>
   </div>
 </div>

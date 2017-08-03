@@ -1,5 +1,10 @@
+<app-book-add-form (create)="add($event)">
+</app-book-add-form>
+
+<hr>
+
 <app-book-card
   [data]="book"
   (rate)="sort($event)"
-  *ngFor="let book of books"
-></app-book-card>
+  *ngFor="let book of books">
+</app-book-card>

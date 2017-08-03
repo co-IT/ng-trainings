@@ -9,7 +9,6 @@ import { BooksService } from './../core/books.service';
   styleUrls: ['./book-grid.component.sass']
 })
 export class BookGridComponent implements OnInit {
-
   books: Book[];
 
   constructor(private booksService: BooksService) { }
@@ -19,7 +18,12 @@ export class BookGridComponent implements OnInit {
   }
 
   sort(book: Book) {
-    console.info(book);
     this.books.sort((a, b) => b.rating - a.rating);
+  }
+
+  // (create)
+  add(book: Book) {
+    this.booksService.add(book);
+    this.books = this.booksService.all();
   }
 }
