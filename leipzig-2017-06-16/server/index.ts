@@ -3,7 +3,7 @@ import bodyParser = require('body-parser');
 import cors = require('cors');
 
 import { BooksController } from './db/books/controller';
-import { AuthController } from './auth/controller'
+import { AuthController } from './auth/controller';
 
 const app = express();
 const port = 4280;
