@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-lg-5 col-md-8 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        Login
+      </div>
+      <form #loginForm=ngForm (submit)="login()">
+        <div class="form-group">
+          <label for="user-name">Name</label>
+          <label [class.invalid]="username.invalid && (username.dirty || username.touched)" for="user-name" class="tooltip tooltip-validation tooltip-top-left tooltip-md">
+          <input
+            [(ngModel)]="user"
+            #username="ngModel"
+            required
+            type="text"
+            id="user-name"
+            name="user-name"
+            class="form-control">
+          <span class="tooltip-content">
+            Die Eingabe des Namens ist erforderlich.
+          </span>
+        </label>
+        </div>
+        <div class="form-group">
+          <label for="user-password">Passwort</label>
+          <label [class.invalid]="passw.invalid && (passw.dirty || passw.touched)" for="user-password" class="tooltip tooltip-validation tooltip-top-left tooltip-md"
+            aria-hasPopup="true" role="tooltip">
+          <input
+            [(ngModel)]="password"
+            required
+            type="password"
+            id="user-password"
+            name="password"
+            class="form-control"
+            #passw="ngModel">
+          <span class="tooltip-content">
+            <span [hidden]="!passw.errors || !passw.errors.required">Die Eingabe des Passwortes ist erforderlich.</span>
+          </span>
+        </label>
+        </div>
+        <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">
+        Login
+      </button>
+      </form>
+      <div *ngIf="loginerror" class="alert alert-danger">
+        <div class="alert-item">
+          <span class="alert-text">
+                Passwort und/oder Nutzer nicht korrekt
+            </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

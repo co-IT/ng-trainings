@@ -1,0 +1,44 @@
+{
+    "1546376232": {
+        "title": "ng-book",
+        "subtitle": "The Complete Guide to Angular 4",
+        "authors": [
+            "Nathan Murray",
+            "Ari Lerner",
+            "Felipe Coury",
+            "Carlos Taborda"
+        ],
+        "cover": "/assets/img/book-covers/angular-ng-book.png",
+        "description": "Angular ist das JavaScript-Framework für professionelle Webapplikationen – hier lernen Sie es umfassend kennen! Christoph Höller macht Sie mit allen relevanten Technologien, Standards und Kernbestandteilen des Angular-Frameworks vertraut. Am Praxisbeispiel einer Projektverwaltung führt Ihnen der Webprofi die Komponenten und Konzepte von Angular praxisnah vor. Formulare, Routing, HTTP-Anbindung und Testing – hier lernen Sie Schritt für Schritt, wie Sie eigene Angular-Webapplikationen erstellen. Inkl. einer umfassenden Zusammenstellung der Features von TypeScript und ECMAScript 2015 im Anhang.",
+        "isbn": "1546376232"
+    },
+    "3836239140": {
+        "title": "Angular",
+        "subtitle": "Grundlagen, fortgeschrittene Techniken und Best Practices mit TypeScript",
+        "authors": [
+            "Christoph Höller"
+        ],
+        "cover": "/assets/img/book-covers/angular-rheinwerk.png",
+        "description": "Angular ist das JavaScript-Framework für professionelle Webapplikationen – hier lernen Sie es umfassend kennen! Christoph Höller macht Sie mit allen relevanten Technologien, Standards und Kernbestandteilen des Angular-Frameworks vertraut. Am Praxisbeispiel einer Projektverwaltung führt Ihnen der Webprofi die Komponenten und Konzepte von Angular praxisnah vor. Formulare, Routing, HTTP-Anbindung und Testing – hier lernen Sie Schritt für Schritt, wie Sie eigene Angular-Webapplikationen erstellen. Inkl. einer umfassenden Zusammenstellung der Features von TypeScript und ECMAScript 2015 im Anhang.",
+        "isbn": "3836239140"
+    },
+    "3864903270": {
+        "title": "React",
+        "subtitle": "Die praktische Einführung in React, React Router und Redux",
+        "description": "React ist ein JavaScript-Framework zur Entwicklung von Benutzeroberflächen sowohl im Browser als auch auf Mobilgeräten. Entwickelt und eingesetzt von Facebook ist es mittlerweile als Open-Source-Projekt verfügbar und hat sich bereits im Einsatz bei diversen namhaften Websites, wie z. B. Airbnb und Netflix, bewährt. Dieses Buch stellt Ihnen die Konzepte von React, React Router und Redux anhand eines durchgehenden Beispiels vor. Sie lernen, wie Sie mit React wiederverwendbare UI-Komponenten entwickeln und wie Sie auf Basis der einzelnen Komponenten ganze Anwendungen zusammenbauen. ",
+        "isbn": "3864903270"
+    },
+    "3864903572": {
+        "title": "Angular",
+        "subtitle": "Grundlagen, fortgeschrittene Techniken und Best Practices mit TypeScript",
+        "authors": [
+            "Johannes Hoppe",
+            "Ferdinand Malcher",
+            "Danny Koppenhagen",
+            "Gregor Woiwode"
+        ],
+        "cover": "/assets/img/book-covers/angular-dpunkt.png",
+        "description": "Egal, ob Sie schon Erfahrung mit AngularJS 1.x haben oder nicht – mit diesem Buch gelingt Ihnen der schnelle Einstieg in das neue Angular-Framework ab Version 4. Anhand eines anspruchsvollen Beispielprojekts lernen Sie Schritt für Schritt, wie Sie strukturierte und modularisierte Single-Page-Anwendungen entwickeln. Praktisch: Der Programmcode zu jeder einzelnen Entwicklungsphase ist auf GitHub verfügbar. So können Sie einsteigen, wo Sie wollen, und nach Wunsch Entwicklungsschritte überspringen. In einem kompakten Schnellstart-Kapitel erstellen Sie zunächst eine erste funktionierende Anwendung. Danach machen Sie sich mit grundlegenden Angular-Konzepten und Techniken vertraut: Angular CLI, Komponenten und Template-Syntax, HTTP-Anbindung, Routing, Formulare (Reactive Forms & Template Driven Forms).",
+        "isbn": "3864903572"
+    }
+}
