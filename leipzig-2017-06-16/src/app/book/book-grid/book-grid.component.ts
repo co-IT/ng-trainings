@@ -14,16 +14,21 @@ export class BookGridComponent implements OnInit {
   constructor(private booksService: BooksService) { }
 
   ngOnInit() {
-    this.books = this.booksService.all()
+    this.loadBooks();
+  }
+
+  loadBooks() {
+    this.booksService
+          .all()
+          .subscribe(books => this.books = books);
   }
 
   sort(book: Book) {
     this.books.sort((a, b) => b.rating - a.rating);
   }
 
-  // (create)
   add(book: Book) {
     this.booksService.add(book);
-    this.books = this.booksService.all();
+    this.loadBooks();
   }
 }

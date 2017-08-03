@@ -1,27 +1,65 @@
-<form>
+<form #bookForm="ngForm">
   <section class="form-block">
     <div class="form-group">
       <label for="">ISBN</label>
-      <input #isbn type="text">
+      <label
+        [class.invalid]="isbn.invalid && (isbn.dirty || isbn.touched)"
+        class="tooltip tooltip-validation tooltip-top-left tooltip-md">
+        <input
+          [(ngModel)]="book.isbn"
+          #isbn="ngModel"
+          required
+          minlength="10"
+          maxlength="10"
+          name="isbn"
+          type="text">
+        <span class="tooltip-content">
+          Bitte geben Sie eine gültige ISBN ein.
+        </span>
+      </label>
     </div>
     <div class="form-group">
-      <label for=""></label>
-      <input #title type="text">
+      <label for="">Title</label>
+      <input
+        [(ngModel)]="book.title"
+        name="title"
+        type="text">
     </div>
     <div class="form-group">
-      <label for=""></label>
-      <input #price type="number">
+      <label for="">Price</label>
+       <label
+        [class.invalid]="price.invalid && (price.dirty || price.touched)"
+        class="tooltip tooltip-validation tooltip-top-left tooltip-md">
+        <input
+          [(ngModel)]="book.price"
+          name="price"
+          pattern="^\d{1,2}\.\d{2}$"
+          #price="ngModel"
+          name="price"
+          type="text">
+          <span class="tooltip-content">
+            Bitte geben Sie einen gültigen Preis ein.
+          </span>
+        </label>
     </div>
     <div class="form-group">
       <label for="">Description</label>
-      <textarea #description></textarea>
+      <textarea
+        [(ngModel)]="book.description"
+        name="description">
+      </textarea>
     </div>
     <div class="form-group">
       <label for="">Authors</label>
-      <input #authors type="text">
+      <input
+        [ngModel]='book.authors'
+        (ngModelChange)="transformAuthors($event)"
+        name="authors"
+        type="text">
     </div>
     <button
-      (click)="createBook(isbn, title, price, description, authors)"
+      [disabled]="bookForm.invalid"
+      (click)="createBook(bookForm)"
       type="button"
       class="btn btn-primary">
       Create Book

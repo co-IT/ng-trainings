@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../book';
 
+import { Observable } from 'rxjs/Observable';
+
+import 'rxjs/add/observable/of';
+
+import 'rxjs/add/operator/map';
+
 @Injectable()
 export class BooksService {
   private books: Book[] = [{
@@ -26,13 +32,16 @@ export class BooksService {
     rating: 4
   }];
 
-  all(): Book[] {
-    return this.books.map(b => new Book(b.isbn,
+  all(): Observable<Book[]> {
+    const mapped = this.books.map(b => new Book(b.isbn,
                                         b.title,
                                         b.description,
                                         b.authors,
                                         b.price,
                                         b.rating));
+    return Observable
+      .of(mapped)
+      .map(books => books.filter(book => book.price > 25));
   }
 
   add(book: Book) {

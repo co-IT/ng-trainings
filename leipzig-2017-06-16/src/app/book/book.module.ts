@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { UtilitiesModule } from '../utilities/utilities.module';
 
@@ -13,6 +14,8 @@ import { BookAddFormComponent } from './book-add-form/book-add-form.component';
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+
     UtilitiesModule
   ],
   providers: [BooksService],
