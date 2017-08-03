@@ -1,11 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
 import { Book } from '../book';
 
 @Component({
   selector: 'app-book-card',
   templateUrl: './book-card.component.html',
-  styleUrls: ['./book-card.component.sass']
+  styleUrls: ['./book-card.component.sass'],
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class BookCardComponent implements OnInit {
 
