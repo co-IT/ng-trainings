@@ -1,0 +1,30 @@
+<form>
+  <section class="form-block">
+    <div class="form-group">
+      <label for="">ISBN</label>
+      <input #isbn type="text">
+    </div>
+    <div class="form-group">
+      <label for=""></label>
+      <input #title type="text">
+    </div>
+    <div class="form-group">
+      <label for=""></label>
+      <input #price type="number">
+    </div>
+    <div class="form-group">
+      <label for="">Description</label>
+      <textarea #description></textarea>
+    </div>
+    <div class="form-group">
+      <label for="">Authors</label>
+      <input #authors type="text">
+    </div>
+    <button
+      (click)="createBook(isbn, title, price, description, authors)"
+      type="button"
+      class="btn btn-primary">
+      Create Book
+    </button>
+  </section>
+</form>
