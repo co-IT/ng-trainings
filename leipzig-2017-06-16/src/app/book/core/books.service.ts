@@ -34,11 +34,28 @@ export class BooksService {
       }));
   }
 
+  single(isbn: string): Observable<Book> {
+    return this.http
+      .get(`${this.endpoint}/book/${isbn}`)
+      .map(response => response.json())
+      .map(b => {
+        const book = new Book(
+          b.isbn,
+          b.title,
+          b.description,
+          b.authors,
+          b.price,
+          0);
+        book.cover = b.cover;
+        return book;
+      });
+  }
+
   add(book: Book): Observable<Response> {
     return this.http.post(`${this.endpoint}/book`, book);
   }
 
-  delete(isbn: string): Observable<{}|Response> {
+  delete(isbn: string): Observable<{} | Response> {
     return this.http
       .delete(`${this.endpoint}/book/${isbn}`)
       .catch(err => {

@@ -1,6 +1,8 @@
 <!-- .thumbnail>img+.title+.authors+.price+.rating+.actions -->
 <div class="thumbnail">
-  <img src="{{ data.cover }}" width="250px" alt="">
+  <a [routerLink]="['book', data.isbn]">
+    <img src="{{ data.cover }}" width="250px" alt="">
+  </a>
 </div>
 <div class="title">{{ data.title }}</div>
 <div class="authors">{{ data.authors }}</div>

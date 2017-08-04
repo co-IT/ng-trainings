@@ -6,10 +6,12 @@ import { BookModule } from './book/book.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 
 import { AppComponent } from './app.component';
+// import { BookEditComponent } from './book-edit/book-edit.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    // BookEditComponent
   ],
   imports: [
     BrowserModule,
