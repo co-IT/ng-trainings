@@ -3,6 +3,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Book } from '../book';
 import { BooksService } from './../core/books.service';
 
+import { Observable } from 'rxjs/Observable';
+
 @Component({
   selector: 'app-book-grid',
   templateUrl: './book-grid.component.html',
@@ -10,6 +12,7 @@ import { BooksService } from './../core/books.service';
 })
 export class BookGridComponent implements OnInit {
   books: Book[];
+  errMessage: string;
 
   constructor(private booksService: BooksService) { }
 
@@ -28,7 +31,18 @@ export class BookGridComponent implements OnInit {
   }
 
   add(book: Book) {
-    this.booksService.add(book);
-    this.loadBooks();
+    this.booksService
+      .add(book)
+      .subscribe(() => this.loadBooks());
+  }
+
+  delete(isbn: string) {
+    this.booksService
+      .delete(isbn)
+      .subscribe(
+        // next callback
+        () => this.loadBooks(),
+        // error callback
+        err => this.errMessage = err);
   }
 }

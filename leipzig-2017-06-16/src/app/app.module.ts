@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { BookModule } from './book/book.module';
+import { AuthenticationModule } from './authentication/authentication.module';
+
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -14,7 +16,8 @@ import { AppComponent } from './app.component';
 
     BookModule,
 
-    AppRoutingModule
+    AppRoutingModule,
+    AuthenticationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -18,7 +18,7 @@ export class AuthenticationService {
   }
 
   storeToken(token) {
-
+    localStorage.setItem('jwt', token);
   }
 
   setUser(token) {

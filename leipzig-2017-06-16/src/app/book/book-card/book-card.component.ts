@@ -12,6 +12,7 @@ export class BookCardComponent implements OnInit {
 
   @Input() data: Book; // <app-book-card [data]></app-book-card>
   @Output() rate = new EventEmitter<Book>();
+  @Output() delete = new EventEmitter<string>();
 
   constructor() { }
 
@@ -28,4 +29,7 @@ export class BookCardComponent implements OnInit {
     this.rate.emit(this.data);
   }
 
+  deleteBook() {
+    this.delete.emit(this.data.isbn);
+  }
 }

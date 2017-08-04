@@ -3,8 +3,13 @@
 
 <hr>
 
+<p>{{ errMessage }}</p>
+
+<hr>
+
 <app-book-card
   [data]="book"
   (rate)="sort($event)"
+  (delete)="delete($event)"
   *ngFor="let book of books">
 </app-book-card>
