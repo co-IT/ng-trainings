@@ -22,7 +22,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private bookService: BookService) { }
 
   ngOnInit() {
-    this.books = this.bookService.all();
+    this.books = this.bookService.getAll();
 
     this.subscription = this.bookService
       .getBookTitles()

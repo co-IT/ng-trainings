@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { NO_ERRORS_SCHEMA, DebugElement } from '@angular/core';
 import { TestBed, ComponentFixture, tick, fakeAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -29,6 +30,7 @@ describe('AppComponent', () => {
       beforeEach(() => {
         TestBed.configureTestingModule({
           declarations: [AppComponent, BookGridComponent, BookGridElementComponent],
+          imports: [HttpModule],
           providers: [BookService],
           schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
@@ -37,22 +39,22 @@ describe('AppComponent', () => {
         app = fixture.componentInstance;
         bookService = fixture.debugElement.injector.get(BookService);
 
-        serviceSpy = spyOn(bookService, 'all').and.returnValue(Observable.of(books));
+        serviceSpy = spyOn(bookService, 'getAll').and.returnValue(Observable.of(books));
 
       });
 
-      it('the book with the highes rating is the first item of the list', fakeAsync(() => {
+      it('the book with the highest rating is the first item of the list', fakeAsync(() => {
         app.ngOnInit();
         tick();
         fixture.detectChanges();
 
         btns = fixture.debugElement.queryAll(By.css('[name=book-add-rate-up]'))
+        console.log(fixture.debugElement.nativeElement);
         btns[1].nativeElement.click()
 
         fixture.detectChanges();
 
         const bookTitles = fixture.debugElement.queryAll(By.css('.content > .title'));
-
         expect(bookTitles[0].nativeElement.innerHTML).toEqual('Aurelia');
       }));
     });

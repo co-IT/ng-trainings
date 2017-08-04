@@ -23,12 +23,12 @@ export class BookGridElementComponent implements OnInit {
   }
 
   rateUp() {
-    this.book.rateUp();
+    this.book.rating++;
     this.rate.emit(this.book);
   }
 
   rateDown() {
-    this.book.rateDown();
+    this.book.rating--;
     this.rate.emit(this.book);
   }
 }
