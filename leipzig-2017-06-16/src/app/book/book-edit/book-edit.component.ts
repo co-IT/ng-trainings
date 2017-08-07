@@ -1,8 +1,9 @@
-import { BooksService } from './../core/books.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators, FormArray } from '@angular/forms';
 
 import { Book } from '../book';
+import { BooksService } from './../core/books.service';
 
 @Component({
   selector: 'app-book-edit',
@@ -12,18 +13,38 @@ import { Book } from '../book';
 export class BookEditComponent implements OnInit {
   id: string;
   book: Book;
+  edit: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
-    private books: BooksService) { }
+    private books: BooksService,
+    private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.declareForm();
     this.id = this.route.snapshot.params.isbn;
 
     this.books
       .single(this.id)
-      .subscribe(book => this.book = book);
+      .subscribe(book => {
+        this.book = book;
+        this.fillForm(book);
+      });
+  }
 
-    // this.route.params.subscribe(params => this.isbn = params.isbn);
+  declareForm() {
+    this.edit = this.fb.group({
+      title: [],
+      authors: this.fb.array([])
+    });
+  }
+
+  fillForm(book: Book) {
+    this.edit.controls.title.setValue(book.title);
+    const authorsOfBook = this.edit.controls.authors as FormArray;
+
+    book.authors.forEach(a =>
+      authorsOfBook.push(this.fb.control(a, Validators.required))
+    );
   }
 }

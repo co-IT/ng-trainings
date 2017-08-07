@@ -1,3 +1,22 @@
-<h2>{{ id | isbn }}</h2>
+<form [formGroup]="edit">
+  <section class="form-block">
+    <div class="form-group">
+      <label for="">TITLE</label>
+      <input formControlName="title" type="text">
+    </div>
 
-{{ book | json }}
+    <div formArrayName="authors">
+      <div
+        *ngFor="let author of edit.controls.authors.controls,
+                index as i"
+        class="form-group">
+        <label for="">Autor {{ i }}</label>
+        <input [formControlName]="i" type="text">
+      </div>
+    </div>
+  </section>
+</form>
+
+<ng-template #loading>
+  Lade Buch...
+</ng-template>
