@@ -1,0 +1,24 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  margin: 16px;
+  margin-left: 0;
+
+  &:hover {
+    box-shadow: 5px 5px 10px 0px rgba(212,212,212,1);
+  }
+
+  a {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    color: #565656;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      margin-left: 8px;
+    }
+  }
+}
