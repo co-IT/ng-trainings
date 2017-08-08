@@ -2,12 +2,15 @@
   <section class="form-block">
     <div class="form-group">
       <label for="">TITLE</label>
-      <input formControlName="title" type="text" class="form-control">
+      <input formControlName="title" #title type="text" class="form-control">
 
       <div *ngIf="edit.controls.title.invalid">
         Die Eingabe ist ungültig.
         <div *ngIf="edit.controls.title.errors.required">
           Der Titel darf nicht leer sein.
+        </div>
+        <div *ngIf="edit.controls.title.errors.minlength">
+          Der Titel muss mindestens 4 Zeichen lang sein.
         </div>
       </div>
 
@@ -20,6 +23,9 @@
         class="form-group">
         <label for="">Autor {{ i }}</label>
         <input [formControlName]="i" type="text">
+        <div *ngIf="author.invalid">
+          Bitte tragens Sie den Namen des Autors ein.
+        </div>
       </div>
     </div>
   </section>
