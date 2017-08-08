@@ -11,16 +11,17 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+import { HttpClient } from '@angular/common/http';
+
 @Injectable()
 export class BooksService {
   endpoint = 'http://localhost:4280';
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
   all(): Observable<Book[]> {
     return this.http
-      .get(`${this.endpoint}/books`)
-      .map(response => response.json())
+      .get<Array<any>>(`${this.endpoint}/books`)
       .map(booksRaw => booksRaw.map(b => {
         const book = new Book(
           b.isbn,
@@ -36,8 +37,7 @@ export class BooksService {
 
   single(isbn: string): Observable<Book> {
     return this.http
-      .get(`${this.endpoint}/book/${isbn}`)
-      .map(response => response.json())
+      .get<any>(`${this.endpoint}/book/${isbn}`)
       .map(b => {
         const book = new Book(
           b.isbn,
@@ -51,11 +51,11 @@ export class BooksService {
       });
   }
 
-  add(book: Book): Observable<Response> {
-    return this.http.post(`${this.endpoint}/book`, book);
+  add(book: Book): Observable<string> {
+    return this.http.post<string>(`${this.endpoint}/book`, book);
   }
 
-  delete(isbn: string): Observable<{} | Response> {
+  delete(isbn: string): Observable<{}> {
     return this.http
       .delete(`${this.endpoint}/book/${isbn}`)
       .catch(err => {

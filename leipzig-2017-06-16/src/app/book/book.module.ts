@@ -1,7 +1,7 @@
+import { MyInterceptor } from './core/http.interceptor';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { UtilitiesModule } from '../utilities/utilities.module';
@@ -15,18 +15,27 @@ import { BookAddFormComponent } from './book-add-form/book-add-form.component';
 import { BookEditComponent } from './book-edit/book-edit.component';
 
 import { IsbnPipe } from './pipes/isbn.pipe';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule,
+    HttpClientModule,
     RouterModule,
 
     UtilitiesModule
   ],
-  providers: [BooksService],
+  providers: [
+    BooksService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MyInterceptor,
+      multi: true
+    }
+  ],
   declarations: [
     BookCardComponent,
     BookGridComponent,
