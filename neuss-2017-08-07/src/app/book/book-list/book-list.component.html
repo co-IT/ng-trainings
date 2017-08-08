@@ -1,0 +1,6 @@
+<ws-book-list-element
+  *ngFor="let book of books"
+  [data]="book"
+  (rate)="reorder($event)"
+>
+</ws-book-list-element>

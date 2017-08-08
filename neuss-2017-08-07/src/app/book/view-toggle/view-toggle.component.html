@@ -1,0 +1,10 @@
+<div class="btn-group">
+  <button
+    (click)="setView(view.Kachel)"
+    [class.btn-primary]="active === view.Kachel"
+    class="btn btn-default">Kachelansicht</button>
+  <button
+    (click)="setView(view.Liste)"
+    [class.btn-primary]="active === view.Liste"
+    class="btn btn-default">Listenansicht</button>
+</div>

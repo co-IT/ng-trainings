@@ -1,0 +1,32 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 16px;
+
+  .cover {
+    width: 150px;
+  }
+
+  &:hover {
+    box-shadow: 5px 5px 10px 0px rgba(212,212,212,1);
+  }
+
+  a {
+    color: #565656;
+    text-decoration: none;
+
+    .thumbnail {
+      text-align: center;
+    }
+  }
+
+  .authors {
+    width: 150px
+  }
+
+  .actions {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+  }
+}

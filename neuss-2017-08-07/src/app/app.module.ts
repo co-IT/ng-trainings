@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { ClarityModule } from 'clarity-angular';
 
+import { BookModule } from './book/book.module';
 
 import { AppComponent } from './app.component';
 
@@ -12,7 +13,9 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    ClarityModule
+    ClarityModule,
+    // Feature Modules
+    BookModule
   ],
   providers: [],
   bootstrap: [AppComponent]

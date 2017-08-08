@@ -1,0 +1,37 @@
+<!-- .thumbnail>img -->
+<div class="thumbnail">
+  <img
+    *ngIf="data.cover; else dummyCover;"
+    class="cover"
+    [src]="data.cover"
+    [alt]="data.title">
+
+  <ng-template #dummyCover>
+    <img
+      src="/assets/img/book-covers/dummy.png"
+      class="cover"
+      alt="Dummy">
+  </ng-template>
+</div>
+<div class="content">
+  <!-- .title+.authors+.price+.rating+.actions -->
+  <div class="title">{{ data.title }}</div>
+  <div class="authors">{{ data.authors }}</div>
+  <div class="price">{{ data.price }}</div>
+  <div class="rating">{{ data.rating }}</div>
+</div>
+<div class="actions">
+  <!-- .btn-group>button.btn.btn-default*2 -->
+  <div class="btn-group">
+    <button
+      (click)="rateUp()"
+      class="btn btn-default">
+      <clr-icon shape="thumbs-up"></clr-icon>
+    </button>
+    <button
+      (click)="rateDown()"
+      class="btn btn-default">
+      <clr-icon shape="thumbs-down"></clr-icon>
+    </button>
+  </div>
+</div>
