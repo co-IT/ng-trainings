@@ -1,3 +1,5 @@
+import { ClickOnceDirective } from './../../utilities/event-modifiers/click-once.directive';
+import { BookDashboardComponent } from './book-dashboard.component';
 import { HttpModule } from '@angular/http';
 import { NO_ERRORS_SCHEMA, DebugElement } from '@angular/core';
 import { TestBed, ComponentFixture, tick, fakeAsync } from '@angular/core/testing';
@@ -5,12 +7,11 @@ import { By } from '@angular/platform-browser';
 
 import { Observable } from 'rxjs/Observable';
 
-import { Book } from './book/models/book';
-import { BookService } from './book/core/book.service';
+import { Book } from '../models/book';
+import { BookService } from '../core/book.service';
 
-import { AppComponent } from './app.component';
-import { BookGridElementComponent } from './book/book-grid-element/book-grid-element.component';
-import { BookGridComponent } from './book/book-grid/book-grid.component';
+import { BookGridElementComponent } from '../book-grid-element/book-grid-element.component';
+import { BookGridComponent } from '../book-grid/book-grid.component';
 
 describe('AppComponent', () => {
   describe('Integration Test', () => {
@@ -23,19 +24,24 @@ describe('AppComponent', () => {
     describe('When a book is rated', () => {
       let serviceSpy: jasmine.Spy;
       let bookService: BookService;
-      let fixture: ComponentFixture<AppComponent>;
-      let app: AppComponent;
+      let fixture: ComponentFixture<BookDashboardComponent>;
+      let app: BookDashboardComponent;
       let btns: DebugElement[];
 
       beforeEach(() => {
         TestBed.configureTestingModule({
-          declarations: [AppComponent, BookGridComponent, BookGridElementComponent],
+          declarations: [
+            BookDashboardComponent,
+            BookGridComponent,
+            BookGridElementComponent,
+            ClickOnceDirective
+          ],
           imports: [HttpModule],
           providers: [BookService],
           schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
 
-        fixture = TestBed.createComponent(AppComponent);
+        fixture = TestBed.createComponent(BookDashboardComponent);
         app = fixture.componentInstance;
         bookService = fixture.debugElement.injector.get(BookService);
 
@@ -49,13 +55,11 @@ describe('AppComponent', () => {
         fixture.detectChanges();
 
         btns = fixture.debugElement.queryAll(By.css('[name=book-add-rate-up]'))
-        console.log(fixture.debugElement.nativeElement);
         btns[1].nativeElement.click()
 
         fixture.detectChanges();
 
         const bookTitles = fixture.debugElement.queryAll(By.css('.content > .title'));
-        console.log(bookTitles);
         expect(bookTitles[0].nativeElement.innerHTML).toEqual('Aurelia');
       }));
     });
