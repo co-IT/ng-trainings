@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 import { Book } from '../book';
 
@@ -8,13 +8,26 @@ import { Book } from '../book';
   styleUrls: ['./book-grid.component.scss']
 })
 export class BookGridComponent implements OnInit {
-  @Input() books: Book[];
+  _books: Book[];
+
+  @Input() set books(books: Book[]) {
+    if (!books) { return; }
+
+    this._books = books;
+    this.reorder(null);
+  }
+
+  get books() { return this._books; }
 
   constructor() { }
 
   ngOnInit() {
 
   }
+
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   this.reorder(null);
+  // }
 
   reorder(book: Book) {
     console.info('Bewertetes Buch', book);

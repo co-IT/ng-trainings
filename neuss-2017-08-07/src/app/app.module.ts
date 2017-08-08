@@ -1,3 +1,4 @@
+import { BookService } from './book/core/book.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 

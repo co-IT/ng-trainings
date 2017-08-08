@@ -1,0 +1,75 @@
+<form #form="ngForm">
+  <section class="form-block">
+    <div class="form-group">
+      <label for="isbn_input">ISBN</label>
+      <label [class.invalid]="isbn.invalid &&
+                         (isbn.dirty || isbn.touched)" class="tooltip tooltip-validation tooltip-top-left tooltip-md">
+        <input
+          [(ngModel)]="book.isbn"
+          required
+          name="isbn"
+          #isbn="ngModel"
+          type="text"
+          class="form-control"
+          id="isbn_input">
+          <!-- span.tooltip-content -->
+          <span class="tooltip-content">
+            Bitte geben Sie eine gültige ISBN ein.
+          </span>
+        </label>
+    </div>
+    <div class="form-group">
+      <label for="">TITLE</label>
+      <label [class.invalid]="title.invalid &&
+                             (title.dirty || title.touched)"
+              class="tooltip tooltip-validation tooltip-top-left tooltip-md">
+        <input
+          [(ngModel)]="book.title"
+          required
+          #title="ngModel"
+          name="title"
+          class="form-control"
+          type="text">
+          <span class="tooltip-contnet">
+            Bitte geben Sie einen Titel ein.
+          </span>
+        </label>
+    </div>
+    <div class="form-group">
+      <label for="">AUTHORS</label>
+      <input
+        [ngModel]="book.authors"
+        (change)="adjustAuthors($event.target.value)"
+        required
+        #authors="ngModel"
+        name="authors"
+        class="form-control"
+        type="text">
+    </div>
+    <div class="form-group">
+      <label for="">PRICE</label>
+      <label [class.invalid]="price.invalid &&
+                         (price.dirty || price.touched)" class="tooltip tooltip-validation tooltip-top-left tooltip-md">
+        <input
+          [(ngModel)]="book.price"
+          #price="ngModel"
+          pattern="\d{1,2}.\d{1,2}"
+          name="price"
+          class="form-control"
+          type="text">
+        <span class="tooltip-content">
+          Bitte geben Sie einen gültigen Preis ein.
+        </span>
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="">DESCRIPTION</label>
+      <textarea [(ngModel)]="book.description" #description="ngModel" name="description" class="form-control" type="text"></textarea>
+    </div>
+    <button
+      [disabled]="form.invalid"
+      (click)="createNewBook(form)"
+      type="button"
+      class="btn btn-primary">Create</button>
+  </section>
+</form>

@@ -22,12 +22,12 @@
   <!-- .btn-group>button.btn.btn-default*2 -->
   <div class="btn-group">
     <button
-      (click)="rateUp()"
+      (click.once)="rateUp()"
       class="btn btn-default">
       <clr-icon shape="thumbs-up"></clr-icon>
     </button>
     <button
-      (click)="rateDown()"
+      (click.once)="rateDown()"
       class="btn btn-default">
       <clr-icon shape="thumbs-down"></clr-icon>
     </button>

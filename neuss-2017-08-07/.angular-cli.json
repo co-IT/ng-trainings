@@ -68,6 +68,9 @@
     },
     "pipe": {
       "spec": false
+    },
+    "service": {
+      "spec": false
     }
   }
 }

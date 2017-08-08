@@ -1,4 +1,15 @@
 {
+    "1231231231": {
+        "title": "The Willpower Instinct",
+        "subtitle": "",
+        "authors": [
+            "Kelly McGonigal"
+        ],
+        "description": "",
+        "price": "20.20",
+        "rating": 7,
+        "cover": "/assets/img/book-covers/willpower.png"
+    },
     "1546376232": {
         "title": "ng-book",
         "subtitle": "The Complete Guide to Angular 4",

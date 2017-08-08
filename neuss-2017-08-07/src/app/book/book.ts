@@ -5,8 +5,12 @@ export class Book {
     public isbn: string,
     public cover: string,
     public authors: string[],
-    public descripion?: string,
+    public description?: string,
     public price = 0,
     public rating = 0
   ) { }
+
+  static empty() {
+    return new Book('', '', '', '', [], '');
+  }
 }
