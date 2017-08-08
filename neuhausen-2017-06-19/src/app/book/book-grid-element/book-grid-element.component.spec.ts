@@ -19,7 +19,7 @@ describe('BookGridElementComponent', () => {
 
         gridElement.rateDown();
 
-        expect(gridElement.book.rating).toEqual(-1);
+        expect(gridElement.book.rating).toEqual(0);
       });
     });
   });

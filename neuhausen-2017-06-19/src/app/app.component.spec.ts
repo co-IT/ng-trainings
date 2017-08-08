@@ -55,6 +55,7 @@ describe('AppComponent', () => {
         fixture.detectChanges();
 
         const bookTitles = fixture.debugElement.queryAll(By.css('.content > .title'));
+        console.log(bookTitles);
         expect(bookTitles[0].nativeElement.innerHTML).toEqual('Aurelia');
       }));
     });
