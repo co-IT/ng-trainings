@@ -2,7 +2,15 @@
   <section class="form-block">
     <div class="form-group">
       <label for="">TITLE</label>
-      <input formControlName="title" type="text">
+      <input formControlName="title" type="text" class="form-control">
+
+      <div *ngIf="edit.controls.title.invalid">
+        Die Eingabe ist ungültig.
+        <div *ngIf="edit.controls.title.errors.required">
+          Der Titel darf nicht leer sein.
+        </div>
+      </div>
+
     </div>
 
     <div formArrayName="authors">

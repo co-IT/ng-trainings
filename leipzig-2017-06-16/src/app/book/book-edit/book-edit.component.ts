@@ -34,7 +34,7 @@ export class BookEditComponent implements OnInit {
 
   declareForm() {
     this.edit = this.fb.group({
-      title: [],
+      title: ['', Validators.required],
       authors: this.fb.array([])
     });
   }
