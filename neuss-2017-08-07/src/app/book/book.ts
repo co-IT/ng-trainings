@@ -7,10 +7,27 @@ export class Book {
     public authors: string[],
     public description?: string,
     public price = 0,
-    public rating = 0
-  ) { }
+    rating = 0
+  ) {
+    this.rating = rating;
+   }
+  private _rating;
 
   static empty() {
     return new Book('', '', '', '', [], '');
+  }
+
+  get rating() {
+    return this._rating;
+  }
+
+  set rating(value: number) {
+    if (value > 5) {
+      this._rating = 5;
+    } else if (value < 0) {
+      this._rating = 0;
+    } else {
+      this._rating = value;
+    }
   }
 }

@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { ClarityModule } from 'clarity-angular';
 
@@ -18,12 +19,16 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MyHttpInterceptor } from './core/http.interceptor';
 
 import { BookService } from './core/book.service';
+import { BookDashboardComponent } from './book-dashboard/book-dashboard.component';
+import { BookEditComponent } from './book-edit/book-edit.component';
 
 @NgModule({
   imports: [
+    ReactiveFormsModule,
     CommonModule,
     FormsModule,
     HttpClientModule,
+    RouterModule,
 
     ClarityModule.forChild(),
 
@@ -35,7 +40,9 @@ import { BookService } from './core/book.service';
     ViewToggleComponent,
     BookListComponent,
     BookListElementComponent,
-    BookAddFormComponent],
+    BookAddFormComponent,
+    BookDashboardComponent,
+    BookEditComponent],
   exports: [
     BookGridComponent,
     ViewToggleComponent,

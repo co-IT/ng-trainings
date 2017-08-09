@@ -18,6 +18,19 @@ export class BookService {
 
   constructor(private http: HttpClient) { }
 
+  single(isbn: string) {
+    return this.http
+      .get<any>(`${this.endpoint}/book/${isbn}`)
+      .map(r => new Book(r.title,
+                         r.subtitle,
+                         r.isbn,
+                         r.cover,
+                         r.authors,
+                         r.description,
+                         r.price,
+                         r.rating));
+  }
+
   all(): Observable<Book[]> {
     return this.http
       .get<Array<any>>(`${this.endpoint}/books`)

@@ -8,29 +8,29 @@ import { ViewType } from './book/view-type';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  errorMessage: string;
-  activeView = ViewType.Kachel;
-  view = ViewType;
-  books: Book[];
+export class AppComponent { // implements OnInit {
+  // errorMessage: string;
+  // activeView = ViewType.Kachel;
+  // view = ViewType;
+  // books: Book[];
 
-  constructor(private bookService: BookService) { }
+  // constructor(private bookService: BookService) { }
 
-  ngOnInit() {
-    this.bookService
-      .all()
-      .subscribe(books => this.books = books);
-  }
+  // ngOnInit() {
+  //   this.bookService
+  //     .all()
+  //     .subscribe(books => this.books = books);
+  // }
 
-  add(book: Book) {
-    this.bookService
-      .createAndRead(book)
-      .subscribe(
-        books => this.books = books,
-        err => this.errorMessage = err);
-  }
+  // add(book: Book) {
+  //   this.bookService
+  //     .createAndRead(book)
+  //     .subscribe(
+  //       books => this.books = books,
+  //       err => this.errorMessage = err);
+  // }
 
-  activateView(type: ViewType) {
-    this.activeView = type;
-  }
+  // activateView(type: ViewType) {
+  //   this.activeView = type;
+  // }
 }

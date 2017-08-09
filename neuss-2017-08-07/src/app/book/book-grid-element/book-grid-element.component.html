@@ -23,6 +23,7 @@
   <div class="btn-group">
     <button
       (click.once)="rateUp()"
+      name="book-add-rate-up"
       class="btn btn-default">
       <clr-icon shape="thumbs-up"></clr-icon>
     </button>
@@ -30,6 +31,13 @@
       (click.once)="rateDown()"
       class="btn btn-default">
       <clr-icon shape="thumbs-down"></clr-icon>
+    </button>
+
+    <!-- book/23131 -->
+    <button
+      [routerLink]="['book', data.isbn]"
+      class="btn btn-default">
+      <clr-icon shape="pencil"></clr-icon>
     </button>
   </div>
 </div>

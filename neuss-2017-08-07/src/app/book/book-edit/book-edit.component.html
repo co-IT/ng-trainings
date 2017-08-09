@@ -1,0 +1,45 @@
+<h4>ISBN <small>{{ isbn$ | async }}</small></h4>
+
+<form [formGroup]="editForm" (ngSubmit)="update()">
+  <section class="form-block">
+    <!-- .form-group>label+input.form-control -->
+    <div class="form-group">
+      <label for="">Title</label>
+      <input
+        formControlName="title"
+        type="text"
+        class="form-control">
+
+      <div *ngIf="title.invalid">
+        Bitte geben Sie einen Titel ein.
+
+        <div *ngIf="title.errors.minlength">
+          Der Titel des Buchs muss mindestens 4 Zeichen lang sein.
+        </div>
+      </div>
+    </div>
+
+    <div formArrayName="authors">
+
+      <div *ngFor="let author of editForm.controls.authors.controls,
+                   index as i"
+            class="form-group">
+        <label>Autor {{ i + 1 }}</label>
+        <input
+          [formControlName]="i"
+          type="text">
+        <button
+          (click)="removeAuthor(i)"
+          class="btn btn-default btn-sm">
+          <clr-icon shape="trash"></clr-icon>
+        </button>
+      </div>
+
+    </div>
+
+    <button
+      [disabled]="editForm.invalid"
+      class="btn btn-primary"
+      type="submit">Update Book</button>
+  </section>
+</form>
