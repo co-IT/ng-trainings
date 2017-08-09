@@ -56,7 +56,6 @@ describe('BookGridElementComponent', () => {
         }).compileComponents();
 
         fixture = TestBed.createComponent(BookGridElementComponent);
-        fixture.autoDetectChanges();
 
         component = fixture.componentInstance;
 
@@ -69,7 +68,10 @@ describe('BookGridElementComponent', () => {
 
       it('the rating is increased by one', () => {
         component.data = Book.empty();
+        fixture.detectChanges();
+
         rateUpBtn.nativeElement.click();
+        fixture.detectChanges();
 
         expect(ratingLbl.nativeElement.innerHTML).toBe('1');
       });
